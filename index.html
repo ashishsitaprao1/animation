@@ -5,32 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rotating Circular Text</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400&display=swap');
+        
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: transparent;
             margin: 0;
         }
-        .circular-text {
+
+        .circle {
             position: relative;
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
             border-radius: 50%;
-            animation: rotate 10s linear infinite;
+            animation: rotate 20s linear infinite;
         }
-        .circular-text p {
+
+        .circle div {
             position: absolute;
             width: 100%;
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.2rem;
+            font-family: 'SF Pro Display', sans-serif;
+            font-size: 25px;
             white-space: nowrap;
             transform-origin: center;
         }
+
+        .outer-circle {
+            animation: rotate 20s linear infinite;
+        }
+
+        .inner-circle {
+            width: 300px;
+            height: 300px;
+            animation: rotateBack 20s linear infinite;
+        }
+
         @keyframes rotate {
             from {
                 transform: rotate(0deg);
@@ -39,11 +55,23 @@
                 transform: rotate(360deg);
             }
         }
+
+        @keyframes rotateBack {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(-360deg);
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="circular-text">
-        <p>• Wireframing • Prototyping • Interaction Design • UX Strategy • A/B Testing • Usability Assessment • User Research • Customer Journey Mapping • Team Collaboration • Project Management</p>
+    <div class="circle outer-circle">
+        <div>• Wireframing • Prototyping • Interaction Design • UX Strategy • A/B Testing • Usability Assessment • User Research • Customer Journey Mapping • Team Collaboration • Project Management</div>
+    </div>
+    <div class="circle inner-circle">
+        <div>• Adobe XD • Sketch • Figma • InVision • Adobe Photoshop • Adobe Creative Suite • Miro • Jira • Notion • Balsamiq • Maze</div>
     </div>
 </body>
 </html>
